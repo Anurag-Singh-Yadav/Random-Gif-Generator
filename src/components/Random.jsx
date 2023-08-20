@@ -1,18 +1,16 @@
-
 import Spinner from './Spinner'
-import GifUse from './GifUse'
+import useGif from "../hooks/useGif";
 export default function Random() {
-    const {gif,loading,fetchData} = GifUse();
+  const { gif, loading, fetchRandomGif } = useGif();
     function clickHandler(){
-        fetchData();
+      fetchRandomGif();
     }
-
   return (
     <div className='flex flex-col bg-green-500 w-1/2 border border-black rounded-md mt-12 items-center gap-y-3'>
       <div className='underline font-bold text-2xl mt-4'>A Random GIF</div>
       <div>
         {
-            loading ? (<img src={gif} alt=''></img>) : (<Spinner></Spinner>)
+            (loading === true) ? (<img src={gif} alt=''></img>) : (<Spinner></Spinner>)
         }
        
       </div>
