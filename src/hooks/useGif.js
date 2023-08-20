@@ -18,7 +18,8 @@ const useGif = (tag) => {
 
   useEffect(() => {
     fetchRandomGif(tag);
-  },[]);
+  },[tag]);
+ 
 
   return { gif, loading, fetchRandomGif };
 };
